@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Now</title>
+    <style>
+        .body{
+            background-color: #141e30;
+        }
+      .new-body {
+        background-color: black;
+      }
+
+      /*Nav Bar Start */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: "center";
+        /* Perfect vertical centering */
+        background: #222;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      /* Center Navigation Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        /* Increased gap between menu items */
+        align-items: "";
+        /* Align vertically */
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 14px;
+        /* Make them feel like buttons */
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-links li a:hover {
+        background: #ff9800;
+        color: white;
+      }
+
+      /* Book Now Button */
+      .book-btn button {
+        padding: 8px 20px;
+        background: #ff9800;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .book-btn button:hover {
+        background: #e68a00;
+      }
+
+      /* Mobile Menu Icon */
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          left: -100%;
+          flex-direction: column;
+          background: #333;
+          width: 100%;
+          transition: left 0.3s;
+          padding: 10px 0;
+          gap: 20px;
+          /* Spacing in mobile menu */
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+      /*Nav Bar End */
+      /* Navbar fix */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: #222;
+        padding: 15px 30px;
+      }
+      /*Book form start */
+      /* Booking Section */
+      .booking-section {
+        margin-top: 80px; /* Navbar ke neeche gap */
+        text-align: center;
+        padding: 40px 20px;
+        background: linear-gradient(to right, #141e30, #243b55);
+      }
+
+      .welcome {
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #ffcc00, #ff6699, #66ccff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 40px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .welcome:hover {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px #ffcc00, 0 0 40px #ff6699, 0 0 60px #66ccff;
+      }
+
+      .form-container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        transition: 0.3s;
+      }
+      .form-container:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 0 40px rgba(255, 204, 0, 0.8);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+        font-weight: bold;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+      }
+      button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(45deg, #ffcc00, #ff6699, #66ccff);
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ffcc00, 0 0 40px #ff6699;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <!--Nevbar start-->
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="Image/navlogo.png" alt="Logo" />
+      </div>
+      <!-- Center Menu -->
+      <ul class="nav-links">
+        <li class="nav-index">
+          <a class="nav-links" href="index.html">Home</a>
+        </li>
+        <li class="nav-login">
+          <a class="nav-links" href="about.html">About</a>
+        </li>
+        <li class="nav-service">
+          <a class="nav-links" href="service.html">Services</a>
+        </li>
+        <li class="nav-explore">
+          <a class="nav-links" href="explore.html">Explore</a>
+        </li>
+        <li class="nav-contact">
+          <a class="nav-links" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-login">
+          <a class="nav-links" href="login.html">Login</a>
+        </li>
+      </ul>
+      <!-- Right Button -->
+      <div class="book-btn">
+        <button id="bookNowBtn">Book Now</button>
+      </div>
+      <!-- Mobile Menu Icon -->
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </nav>
+    <!--Nevbar End-->
+    <!-- Navbar ke neeche Booking Form Section -->
+    <section class="booking-section">
+      <div class="welcome">Thanks for visiting City Hotel</div>
+
+      <div class="form-container">
+        <h2>Hotel Booking Form</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input
+              type="tel"
+              id="mobile"
+              placeholder="Enter your mobile number"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email ID</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="date">Booking Date</label>
+            <input type="date" id="date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="people">How many people will stay?</label>
+            <select id="people" required>
+              <option value="">Select</option>
+              <!-- 1 to 30 -->
+              <script>
+                for (let i = 1; i <= 30; i++) {
+                  document.write(`<option value="${i}">${i}</option>`);
+                }
+              </script>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rooms">How many rooms do you want?</label>
+            <select id="rooms" required>
+              <option value="">Select</option>
+              <!-- 1 to 10 -->
+              <script>
+                for (let i = 1; i <= 10; i++) {
+                  document.write(`<option value="${i}">${i}</option>`);
+                }
+              </script>
+            </select>
+          </div>
+
+          <button type="submit">Book Now</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

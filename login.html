@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page with Alert</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: rgb(139, 180, 196);
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* ✅ fixed */
+        background: #222;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      /* Center Navigation Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 14px;
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-links li a:hover {
+        background: #ff9800;
+        color: white;
+      }
+
+      /* Book Now Button */
+      .book-btn button {
+        padding: 8px 20px;
+        background: #ff9800;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .book-btn button:hover {
+        background: #e68a00;
+      }
+
+      /* Layout: navbar + login side by side */
+      .main-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        margin-top: 40px;
+      }
+
+      .login-container {
+        background: rgb(4, 57, 77);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+        color: white;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      input:focus {
+        border-color: #2f80ed;
+        box-shadow: 0 0 8px rgba(47, 128, 237, 0.5);
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: #2f80ed;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .login-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(47, 128, 237, 0.6);
+        background: #1c5ed6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Image/navlogo.png" alt="Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <div class="book-btn">
+        <button id="bookNowBtn">Book Now</button>
+      </div>
+    </nav>
+
+    <!-- Navbar + Login aligned in same line -->
+    <div class="main-wrapper">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="text" id="name" placeholder="Enter Name" required />
+          <input
+            type="text"
+            id="mobile"
+            placeholder="Enter Mobile Number"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+          <button type="submit" class="login-btn">Login</button>
+          <br /><br /><br />
+          <a style="color: antiquewhite" id="forgotLink" href="forget.html"
+            >Forgot password?</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <script>
+      //Book Now//
+      document
+        .getElementById("bookNowBtn")
+        .addEventListener("click", function () {
+          // Confirmation alert
+          let confirmLogin = confirm("Please login to continue booking.");
+
+          // If user clicks OK → redirect to login page
+          if (confirmLogin) {
+            window.location.href = "login.html";
+          }
+          // If Cancel → stay on same page
+        });
+      //Book Now End//
+      //Page Book Now start//
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Dummy login (aap backend laga sakte ho)
+          localStorage.setItem("isLoggedIn", "true");
+
+          // Success alert
+          alert("You are successfully logged in!");
+
+          // Check kare kya user Book Now button se login page pe aaya tha
+          if (localStorage.getItem("redirectToBooking") === "true") {
+            // Flag clear karo
+            localStorage.removeItem("redirectToBooking");
+            // Redirect booking page
+            window.location.href = "booknow.html";
+          }
+        });
+      //Page Book Noe End//
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let name = document.getElementById("name").value.trim();
+          let mobile = document.getElementById("mobile").value.trim();
+          let password = document.getElementById("password").value.trim();
+
+          if (name && mobile && password) {
+            alert(`Login Successful!\nName: ${name}\nMobile: ${mobile}`);
+          } else {
+            alert("Please fill all the fields correctly!");
+          }
+        });
+      //forget //
+      const emailInput = document.querySelector('input[name="email"]');
+      const forgotLink = document.getElementById("forgotLink");
+      emailInput.addEventListener("input", () => {
+        const v = encodeURIComponent(emailInput.value || "");
+        forgotLink.href = `forgot-password.html?email=${v}`;
+      });
+    </script>
+  </body>
+</html>

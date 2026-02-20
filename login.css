@@ -1,0 +1,152 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: "center";
+        /* Perfect vertical centering */
+        background: #222;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      /* Center Navigation Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        /* Increased gap between menu items */
+        align-items: "";
+        /* Align vertically */
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 14px;
+        /* Make them feel like buttons */
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-links li a:hover {
+        background: #ff9800;
+        color: white;
+      }
+
+      /* Book Now Button */
+      .book-btn button {
+        padding: 8px 20px;
+        background: #ff9800;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .book-btn button:hover {
+        background: #e68a00;
+      }
+
+      /* Mobile Menu Icon */
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          left: -100%;
+          flex-direction: column;
+          background: #333;
+          width: 100%;
+          transition: left 0.3s;
+          padding: 10px 0;
+          gap: 20px;
+          /* Spacing in mobile menu */
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+      /*Nav End*/
+      body {
+        font-family: Arial, sans-serif;
+        background: rgb(181, 208, 219);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .login-container {
+        background: rgb(4, 57, 77);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: rgb(25, 1, 1);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      input:focus {
+        border-color: #2f80ed;
+        box-shadow: 0 0 8px rgba(47, 128, 237, 0.5);
+      }
+
+      /* 3rd Animation - Scale & Glow on Hover */
+      .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: #2f80ed;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .login-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(47, 128, 237, 0.6);
+        background: #1c5ed6;
+      }

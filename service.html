@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Services</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: "center";
+        /* Perfect vertical centering */
+        background: #222;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      /* Center Navigation Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        /* Increased gap between menu items */
+        align-items: "";
+        /* Align vertically */
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 14px;
+        /* Make them feel like buttons */
+        border-radius: 4px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-links li a:hover {
+        background: #ff9800;
+        color: white;
+      }
+
+      /* Book Now Button */
+      .book-btn button {
+        padding: 8px 20px;
+        background: #ff9800;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .book-btn button:hover {
+        background: #e68a00;
+      }
+
+      /* Mobile Menu Icon */
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          left: -100%;
+          flex-direction: column;
+          background: #333;
+          width: 100%;
+          transition: left 0.3s;
+          padding: 10px 0;
+          gap: 20px;
+          /* Spacing in mobile menu */
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+      /*Nav END*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background-color: rgb(182, 214, 227);
+      }
+
+      /* Page Title */
+      .page-title {
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 20px 0;
+        color: #333;
+        transition: transform 0.4s ease, color 0.4s ease;
+      }
+      .page-title:hover {
+        transform: scale(1.05);
+        color: #ff6600;
+        cursor: pointer;
+      }
+
+      /* Service Section */
+      .service-section {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        align-items: center;
+      }
+      .service-image,
+      .service-text {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .service-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease;
+      }
+      .service-image img:hover {
+        transform: scale(1.05);
+      }
+      .service-text {
+        flex-direction: column;
+        text-align: left;
+      }
+      .service-text h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .service-text p {
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* Alternate layout */
+      .reverse {
+        flex-direction: row-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Nevbar start-->
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="Image/navlogo.png" alt="Logo" />
+      </div>
+      <!-- Center Menu -->
+      <ul class="nav-links">
+        <li class="nav-index">
+          <a class="nav-links" href="index.html">Home</a>
+        </li>
+        <li class="nav-login">
+          <a class="nav-links" href="about.html">About</a>
+        </li>
+        <li class="nav-service">
+          <a class="nav-links" href="service.html">Services</a>
+        </li>
+        <li class="nav-explore">
+          <a class="nav-links" href="explore.html">Explore</a>
+        </li>
+        <li class="nav-contact">
+          <a class="nav-links" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-login">
+          <a class="nav-links" href="login.html">Login</a>
+        </li>
+      </ul>
+      <!-- Right Button -->
+      <div class="book-btn">
+        <button id="bookNowBtn">Book Now</button>
+      </div>
+
+      <!-- Mobile Menu Icon -->
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </nav>
+    <!--Nevbar End-->
+    <h1 class="page-title">Services</h1>
+
+    <!-- Service 1 -->
+    <div class="service-section">
+      <div class="service-image">
+        <img src="Image/slider2.jpg" alt="Room Service" />
+      </div>
+      <div class="service-text">
+        <h2>Luxury Rooms</h2>
+        <h5>
+          Experience the comfort of our spacious luxury rooms, designed for
+          ultimate relaxation with modern amenities and elegant interiors.
+        </h5>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-section reverse">
+      <div class="service-image">
+        <img src="Image/apartment.jpg" alt="Apartments" />
+      </div>
+      <div class="service-text">
+        <h2>Premium Apartments</h2>
+        <h5>
+          Stay in our fully furnished premium apartments, perfect for long stays
+          with kitchen facilities, living rooms, and balcony views.
+        </h5>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-section">
+      <div class="service-image">
+        <img src="Image/spra.jpg" alt="Spa" />
+      </div>
+      <div class="service-text">
+        <h2>Luxury Spa</h2>
+        <h5>
+          Rejuvenate your mind and body with our world-class spa treatments,
+          including massages, facials, and aromatherapy.
+        </h5>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-section reverse">
+      <div class="service-image">
+        <img src="Image/seaview.jpg" alt="Sea View" />
+      </div>
+      <div class="service-text">
+        <h2>Sea View</h2>
+        <h5>
+          Enjoy breathtaking sea views right from your room or balcony, offering
+          the perfect backdrop for relaxation.
+        </h5>
+      </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="service-section">
+      <div class="service-image">
+        <img src="Image/s10.jpg" alt="Restaurant" />
+      </div>
+      <div class="service-text">
+        <h2>Fine Dining Restaurant</h2>
+        <h5>
+          Indulge in gourmet dishes prepared by top chefs in our elegant
+          restaurant, offering a variety of cuisines to satisfy every palate.
+          Keep in advance
+        </h5>
+      </div>
+    </div>
+    <script>
+      //Book Now//
+      document
+        .getElementById("bookNowBtn")
+        .addEventListener("click", function () {
+          // Confirmation alert
+          let confirmLogin = confirm("Please login to continue booking.");
+
+          // If user clicks OK → redirect to login page
+          if (confirmLogin) {
+            window.location.href = "login.html";
+          }
+          // If Cancel → stay on same page
+        });
+      //Book Now End//
+    </script>
+  </body>
+</html>
